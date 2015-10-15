@@ -152,3 +152,8 @@ nav .input-field label.active i {
 .opening-times {
     font-size: .8em;
 }
+
+.result-info {
+    color: #7F8C8D;
+    font-size: .8em;
+}

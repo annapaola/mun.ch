@@ -6,6 +6,7 @@ var munch_lib = (function () {
     var map = undefined;
     var infowindow = undefined;
     var search_types = ["restaurant"];
+    var last_search = '';
 
     var post_process_place = function (place) {
         if (place.opening_hours) {
@@ -28,6 +29,7 @@ var munch_lib = (function () {
 
     };
 
+    // returns an image to represent the current state.
     var get_map_marker = function (place) {
         var img = 'assets/img/map-marker';
 
@@ -65,7 +67,6 @@ var munch_lib = (function () {
         var service = new google.maps.places.PlacesService(map);
         if (status === google.maps.places.PlacesServiceStatus.OK) {
             for (var i = 0; i < results.length; i++) {
-                console.log("searching for" + results[i].place_id);
 
                 service.getDetails({
                     placeId: results[i].place_id
@@ -89,8 +90,10 @@ var munch_lib = (function () {
             }
 
             if (search_term == "") {
-                initExplore();
+                munch_lib.initExplore();
             }
+
+            last_search = search_term;
 
             map = new google.maps.Map(document.getElementById('map'), {
                 center: geneve,
@@ -111,19 +114,25 @@ var munch_lib = (function () {
 
 
         initExplore: function () {
-            map = new google.maps.Map(document.getElementById('map'), {
-                center: geneve,
-                zoom: 12
-            });
 
-            infowindow = new google.maps.InfoWindow();
+            if (last_search != "") {
+                $("#search").val(last_search);
+                munch_lib.performSearch(last_search)
+            } else {
+                map = new google.maps.Map(document.getElementById('map'), {
+                    center: geneve,
+                    zoom: 12
+                });
 
-            var service = new google.maps.places.PlacesService(map);
-            service.nearbySearch({
-                location: geneve,
-                radius: 2000,
-                types: search_types
-            }, callback);
+                infowindow = new google.maps.InfoWindow();
+
+                var service = new google.maps.places.PlacesService(map);
+                service.nearbySearch({
+                    location: geneve,
+                    radius: 2000,
+                    types: search_types
+                }, callback);
+            }
         },
 
         initDetail: function (place_id) {
