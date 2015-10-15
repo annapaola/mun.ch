@@ -62,6 +62,13 @@ nav .input-field label.active i {
     top: 7px;
 }
 
+.search_bar{
+    padding-top: 50px;
+    padding-bottom: 50px;
+    background: #26B99A;
+
+}
+
 .status_tag {
     padding: 5px;
     color: #7F8C8D;
@@ -156,4 +163,8 @@ nav .input-field label.active i {
 .result-info {
     color: #7F8C8D;
     font-size: .8em;
+}
+
+.result_table{
+    margin-bottom: 50px;
 }

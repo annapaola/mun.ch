@@ -7,6 +7,8 @@ var munch_lib = (function () {
     var infowindow = undefined;
     var search_types = ["restaurant"];
     var last_search = '';
+    var radius = 2000;
+    var zoom = 14;
 
     var post_process_place = function (place) {
         if (place.opening_hours) {
@@ -82,7 +84,19 @@ var munch_lib = (function () {
         }
     };
 
+    var create_map = function() {
+        map = new google.maps.Map(document.getElementById('map'), {
+            center: geneve,
+            zoom: zoom
+        });
+    };
+
+    var create_info_window= function () {
+        infowindow = new google.maps.InfoWindow();
+    };
+
     return {
+        // performs the search. The default behaviour is to get the max restaurants within the defined radius.
         performSearch: function (search_term) {
 
             if (search_term == undefined) {
@@ -95,53 +109,46 @@ var munch_lib = (function () {
 
             last_search = search_term;
 
-            map = new google.maps.Map(document.getElementById('map'), {
-                center: geneve,
-                zoom: 14
-            });
 
-            infowindow = new google.maps.InfoWindow();
+            create_map();
+            create_info_window();
+
             var service = new google.maps.places.PlacesService(map);
 
             service.textSearch(
                 {
                     location: geneve,
-                    radius: 2000,
+                    radius: radius,
                     query: search_term,
                     types: search_types
                 }, callback);
         },
 
-
+        // this initialises code to get which is activated when there are no search terms.
         initExplore: function () {
 
             if (last_search != "") {
                 $("#search").val(last_search);
                 munch_lib.performSearch(last_search)
             } else {
-                map = new google.maps.Map(document.getElementById('map'), {
-                    center: geneve,
-                    zoom: 12
-                });
-
-                infowindow = new google.maps.InfoWindow();
+                create_map();
+                create_info_window();
 
                 var service = new google.maps.places.PlacesService(map);
                 service.nearbySearch({
                     location: geneve,
-                    radius: 2000,
+                    radius: radius,
                     types: search_types
                 }, callback);
             }
         },
 
+        // this initialises the detail page with content given a place_id
         initDetail: function (place_id) {
-            map = new google.maps.Map(document.getElementById('map'), {
-                center: geneve,
-                zoom: 14
-            });
+            create_map();
 
-            infowindow = new google.maps.InfoWindow();
+            create_info_window();
+
             var service = new google.maps.places.PlacesService(map);
 
             service.getDetails({

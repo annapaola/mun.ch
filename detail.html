@@ -12,7 +12,15 @@
 <script id="main-info-template" type="text/x-handlebars-template">
     <a href="#/explore">Back</a>
     <h4>{{name}}</h4>
-    {{#if opening_hours.open_now}}<span class="status_tag open">OPEN NOW</span>{{else}}<span class="status_tag closed">CLOSED</span>{{/if}} <span class="white-text">{{current_opening}}</span>
+    {{#if opening_hours}}
+        {{#if opening_hours.open_now}}
+            <span class="status_tag open">OPEN NOW</span>
+        {{else}}
+            <span class="status_tag closed">CLOSED</span>
+        {{/if}}
+    {{/if}}
+
+    <span class="white-text">{{current_opening}}</span>
 
     <p class="place">
         {{formatted_address}}
@@ -31,7 +39,17 @@
             <div class="col s6">
 
                 <h5>Opening times</h5>
-                {{#if opening_hours.open_now}}<span class="status_tag open">OPEN NOW</span>{{else}}<span class="status_tag closed">CLOSED</span>{{/if}}
+
+                {{#if opening_hours}}
+                    {{#if opening_hours.open_now}}
+                        <span class="status_tag open">OPEN NOW</span>
+                    {{else}}
+                        <span class="status_tag closed">CLOSED</span>
+                    {{/if}}
+                {{else}}
+                <span class="status_tag">No opening times available.</span>
+                {{/if}}
+
 
                 {{#each opening_hours.weekday_text}}
                 <p>{{this}}</p>

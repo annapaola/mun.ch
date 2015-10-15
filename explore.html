@@ -1,32 +1,37 @@
-<div>
+<div class="">
     <form>
+
         <div class="input-field">
             <input id="search" type="search" class="search-field" placeholder="Search for a restaurant" onchange="munch_lib.performSearch()">
         </div>
+
     </form>
 </div>
 
+
+
 <div id="map"></div>
 
-<div id="results">
+<div class="container">
+    <div id="results">
 
-    <p align="center" class="result-info">Displaying a maximum of 20 results.</p>
-    <table class="table">
-        <thead>
-        <tr>
-            <th></th>
-            <th>name</th>
-            <th>rating</th>
-            <th>address</th>
-            <th>todays opening hours</th>
-        </tr>
-        </thead>
-        <tbody>
+        <p align="center" class="result-info">Displaying a maximum of 20 results.</p>
+        <table class="table result_table">
+            <thead>
+            <tr>
+                <th></th>
+                <th>name</th>
+                <th>rating</th>
+                <th>address</th>
+                <th>todays opening hours</th>
+            </tr>
+            </thead>
+            <tbody>
 
-        </tbody>
-    </table>
+            </tbody>
+        </table>
+    </div>
 </div>
-
 
 <script id="result-item-template" type="text/x-handlebars-template">
     <tr>
