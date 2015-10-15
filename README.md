@@ -6,7 +6,7 @@ Mun.ch allows to search the opening time of restaurant in Geneva.
 
 The result list is limited to 20.
 
-Users can search for a restaurant and start a new search. In this version of the app, the back to previous search is not implemented.
+Users can search for a restaurant, access to its details, go back to the previous search, and start a new search.
 
 
 ## Run Instructions
