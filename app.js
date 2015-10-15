@@ -1,25 +1,10 @@
 var animateApp = angular.module('visualizationApp', ['ngRoute']);
 
-angular.module('visualizationApp').factory('detail', function() {
-    return {
-        init_detail : function(place_id) {
-           initDetail(place_id)
-        }
-    };
-});
-
-angular.module('visualizationApp').factory('search', function() {
-    return {
-        perform_search: function(search_term) {
-            performSearch(search_term)
-        }
-    };
-});
 
 animateApp.config(function($routeProvider) {
     $routeProvider
         .when('/', {
-            templateUrl: 'explore.html',
+            templateUrl: 'main.html'
         })
         .when('/explore', {
             templateUrl: 'explore.html'
@@ -28,13 +13,11 @@ animateApp.config(function($routeProvider) {
             templateUrl: 'detail.html',
             controller: 'detailController'
         });
-
 });
 
 
-
-animateApp.controller('detailController', function($scope, $routeParams, $window, detail) {
+animateApp.controller('detailController', function($scope, $routeParams, $location) {
     $scope.show_header = true;
     $scope.place_id = $routeParams.place_id;
-    initDetail($scope.place_id);
+    munch_lib.initDetail($scope.place_id);
 });

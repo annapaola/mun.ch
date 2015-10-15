@@ -28,14 +28,10 @@
 <nav class="white text-grey">
     <a href="#" class="brand-logo"><img src="assets/img/munch-logo-hor.svg" width="130px"> </a>
     <ul id="slide-out" class="side-nav">
-
-        <li><a href="/#/explore">Explore Geneva</a></li>
         <li><a class="modal-trigger" href="#aboutmodal">About</a></li>
         <li><a class="modal-trigger" href="#helpmodal">Help</a></li>
     </ul>
     <ul class="right hide-on-med-and-down">
-
-        <li><a href="#/explore" >Explore Geneva</a></li>
         <li><a class="modal-trigger" href="#aboutmodal">About</a></li>
         <li><a class="modal-trigger" href="#helpmodal">Help</a></li>
     </ul>
@@ -67,7 +63,8 @@
     <div class="modal-content">
         <h4>About</h4>
 
-        <p><span class="highlight">Mun.ch</span> is an app which will help you finding the opening hours of your favourite restaurants in Geneva, together with other useful information about them.</p>
+        <p><span class="highlight">Mun.ch</span> is an app which will help you finding the opening hours of your
+            favourite restaurants in Geneva, together with other useful information about them.</p>
 
         <p>Developed by Annapaola Santarsiero</p>
 
@@ -80,14 +77,23 @@
     </div>
 </div>
 
+
 <script id="map-info-template" type="text/x-handlebars-template">
-    <p>{{name}} {{#if opening_hours.open_now}}<span class="status_tag open">OPEN</span>{{else}}<span class="status_tag closed">CLOSED</span>{{/if}}</p>
+    <p><a href="#/detail/{{place_id}}">{{name}}</a> {{#if opening_hours.open_now}}<span
+            class="status_tag open">OPEN</span>{{else}}<span class="status_tag closed">CLOSED</span>{{/if}}</p>
 
     <p class="place">
         {{vicinity}}
     </p>
 
     <p>Rating {{rating}}/5</p>
+
+    <p>
+        {{#each opening_hours.weekday_text}}
+        {{this}}<br/>
+        {{/each}}
+    </p>
+
 </script>
 
 

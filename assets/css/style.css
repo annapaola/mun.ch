@@ -133,3 +133,22 @@ nav .input-field label.active i {
 .home_link {
     font-size: .7em;
 }
+
+.input-field {
+
+    margin-top: 0;
+}
+
+.input-field input[type=search] {
+    background-color: #26B99A;
+    color: white;
+}
+
+.input-field input[type=search]:focus {
+    background-color: #2C3E50;
+    color: white;
+}
+
+.opening-times {
+    font-size: .8em;
+}
