@@ -1,4 +1,4 @@
-![image](assets/img/munch-logo-ver.svg)
+![image](assets/img/munch-logo-ver.png)
 
 ## Run Instructions
 
