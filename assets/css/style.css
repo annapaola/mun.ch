@@ -1,0 +1,135 @@
+html {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    color: #2C3E50;
+    height: 100%;
+    background: #f6f6f6;
+    font-family: 'Roboto', sans-serif;
+}
+
+a {
+    color: #26B99A;
+    font-weight: normal;
+}
+
+nav .brand-logo {
+    margin: 7px;
+}
+
+nav ul a {
+    color: #26B99A;
+}
+
+.padding-20 {
+    padding:20px;
+}
+
+nav a {
+    color: #26B99A;
+}
+
+.content {
+    width: 100%;
+    margin: 0 auto;
+}
+
+#map {
+    height: 300px;
+    width:100%;
+}
+
+.input-field input[type=search] ~ .material-icons {
+    color: #7F8C8D;
+    top: 15px
+}
+
+input[type=search] {
+    margin: 0;
+}
+
+nav .input-field label i {
+    color: #7F8C8D;
+}
+nav .input-field label.active i {
+    color: #26B99A;
+}
+
+.input-field input[type=search]+label {
+    left: 1rem;
+    top: 7px;
+}
+
+.status_tag {
+    padding: 5px;
+    color: #7F8C8D;
+    background-color: #f6f6f6;
+    border-radius: 3px;
+}
+.open {
+    color: white;
+    background-color: #26B99A;
+}
+.closed {
+    color: white;
+    background-color: #E64C3C;
+}
+
+.home_container{
+    margin-top: 8em;
+}
+
+.main-logo{
+    text-align: center;
+}
+
+.main-logo img {
+    width: 200px;
+    height: auto;
+}
+
+.headline{
+    font-size: medium;
+    text-align: center;
+}
+
+.highlight{
+    color: #fff;
+    background-color: #26B99A;
+    border-radius: 2px;
+    padding: 2px 4px;
+}
+
+.info-header {
+    padding: 10px;
+    background-color: #2C3E50;
+    color: #26B99A;
+}
+
+.detail-container {
+    padding-top: 1em;
+}
+
+.review {
+    background-color: #f6f6f6;
+    padding: 4px;
+    margin: 3px;
+}
+
+.author {
+    font-weight: bolder;
+}
+
+.review-text {
+    font-size: .8em;
+}
+
+.white-text {
+    color:white;
+}
+
+.home_link {
+    font-size: .7em;
+}

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/js/materialize.min.js"></script>
+    <script src="http://code.angularjs.org/1.2.13/angular.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.13/angular-route.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.13/angular-animate.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBzEKyle2FBTN49W5MkTOJVzE4IAu60gR4&signed_in=true&libraries=places"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.3/handlebars.min.js"></script>
+    <script src="assets/js/munch.lib.js" type="text/javascript"></script>
+
+    <script src="app.js"></script>
+
+</head>
+
+<!-- apply our angular app -->
+<body ng-app="visualizationApp">
+
+
+<nav class="white text-grey">
+    <a href="#" class="brand-logo"><img src="assets/img/munch-logo-hor.svg" width="130px"> </a>
+    <ul id="slide-out" class="side-nav">
+
+        <li><a href="/#/explore">Explore Geneva</a></li>
+        <li><a class="modal-trigger" href="#aboutmodal">About</a></li>
+        <li><a class="modal-trigger" href="#helpmodal">Help</a></li>
+    </ul>
+    <ul class="right hide-on-med-and-down">
+
+        <li><a href="#/explore" >Explore Geneva</a></li>
+        <li><a class="modal-trigger" href="#aboutmodal">About</a></li>
+        <li><a class="modal-trigger" href="#helpmodal">Help</a></li>
+    </ul>
+
+    <a href="#" data-activates="slide-out" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
+</nav>
+
+
+<!-- inject our views using ng-view -->
+<!-- each angular controller applies a different class here -->
+<div ng-view></div>
+
+<div id="helpmodal" class="modal bottom-sheet">
+    <div class="modal-content">
+        <h4>Help</h4>
+
+        <p>You can search for a specific restaurant or explore all the restaurant in Geneva.</p>
+
+        <p>Clicking on the restaurant name in the result page, you can access to its details.</p>
+
+
+    </div>
+    <div class="modal-footer">
+        <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Close</a>
+    </div>
+</div>
+
+<div id="aboutmodal" class="modal bottom-sheet">
+    <div class="modal-content">
+        <h4>About</h4>
+
+        <p><span class="highlight">Mun.ch</span> is an app which will help you finding the opening hours of your favourite restaurants in Geneva, together with other useful information about them.</p>
+
+        <p>Developed by Annapaola Santarsiero</p>
+
+        <p>I hope you like it!</p>
+
+        <p></p>
+    </div>
+    <div class="modal-footer">
+        <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Close</a>
+    </div>
+</div>
+
+<script id="map-info-template" type="text/x-handlebars-template">
+    <p>{{name}} {{#if opening_hours.open_now}}<span class="status_tag open">OPEN</span>{{else}}<span class="status_tag closed">CLOSED</span>{{/if}}</p>
+
+    <p class="place">
+        {{vicinity}}
+    </p>
+
+    <p>Rating {{rating}}/5</p>
+</script>
+
+
+<script type="text/javascript">
+    $(".button-collapse").sideNav();
+    $('.modal-trigger').leanModal();
+</script>
+
+
+</body>
+
+
+</html>
+

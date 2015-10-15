@@ -1,0 +1,51 @@
+<div class="">
+    <form>
+        <div class="input-field">
+            <input id="search" type="search" required placeholder="Search a restaurant" onchange="performSearch()">
+        </div>
+    </form>
+</div>
+
+<div id="map"></div>
+
+<div id="results">
+<div class="container">
+    <table class="table">
+        <thead>
+        <tr>
+            <th></th>
+            <th>name</th>
+            <th>rating</th>
+            <th>address</th>
+            <th>opening hours</th>
+        </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+</div>
+        </div>
+
+<script id="result-item-template" type="text/x-handlebars-template">
+    <tr>
+    <td>{{#if opening_hours}}
+            {{#if opening_hours.open_now}}
+                <span class="status_tag open">OPEN</span>
+            {{else}}
+                <span class="status_tag closed">CLOSED</span>
+            {{/if}}
+        {{else}}
+            <span class="status_tag">Unknown</span>
+        {{/if}}
+    </td>
+    <td><a href="#/detail/{{place_id}}">{{name}}</a></td>
+    <td>{{rating}}/5</td>
+    <td>{{vicinity}}</td>
+        <td>{{opening_hours.weekday_text}}</td>
+    </tr>
+</script>
+
+<script>
+    initExplore();
+</script>

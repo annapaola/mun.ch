@@ -1,0 +1,68 @@
+<div id="main_info" class="info-header">
+
+</div>
+
+<div id="map" style="height: 200px"></div>
+
+<div id="extra_info" class="detail-container">
+
+</div>
+
+
+<script id="main-info-template" type="text/x-handlebars-template">
+    <a href="#/explore">Back</a>
+    <h4>{{name}}</h4>
+    {{#if opening_hours.open_now}}<span class="status_tag open">OPEN NOW</span>{{else}}<span class="status_tag closed">CLOSED</span>{{/if}} <span class="white-text">{{current_opening}}</span>
+
+    <p class="place">
+        {{formatted_address}}
+    </p>
+
+    <p>{{price_text}}</p>
+
+</script>
+
+
+<script id="extra-info-template" type="text/x-handlebars-template">
+
+    <div class="container">
+        <div class="row">
+
+            <div class="col s6">
+
+                <h5>Opening times</h5>
+                {{#if opening_hours.open_now}}<span class="status_tag open">OPEN NOW</span>{{else}}<span class="status_tag closed">CLOSED</span>{{/if}}
+
+                {{#each opening_hours.weekday_text}}
+                <p>{{this}}</p>
+                {{/each}}
+
+                <br/>
+
+                <h5>Contact</h5>
+                <p class="phone">
+                    {{international_phone_number}}
+                </p>
+            </div>
+
+            <div class="col s6">
+                <h5>Rating and reviews</h5>
+
+                <p>Rating {{rating}}/5</p>
+
+                {{#each reviews}}
+                <div class="review">
+                    <p><span class="author">{{this.author_name}}</span> - {{this.rating}}/5</p>
+                    <p class="review-text">{{this.text}}</p>
+                </div>
+                <div class="clearfix"></div>
+                {{/each}}
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+</script>
