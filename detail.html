@@ -10,24 +10,25 @@
 
 
 <script id="main-info-template" type="text/x-handlebars-template">
-    <a href="#/explore">Back</a>
-    <h4>{{name}}</h4>
-    {{#if opening_hours}}
-        {{#if opening_hours.open_now}}
-            <span class="status_tag open">OPEN NOW</span>
-        {{else}}
-            <span class="status_tag closed">CLOSED</span>
+    <div class="container">
+        <a href="#/explore">Back</a>
+        <h4>{{name}}</h4>
+        {{#if opening_hours}}
+            {{#if opening_hours.open_now}}
+                <span class="status_tag open">OPEN NOW</span>
+            {{else}}
+                <span class="status_tag closed">CLOSED</span>
+            {{/if}}
         {{/if}}
-    {{/if}}
 
-    <span class="white-text">{{current_opening}}</span>
+        <span class="white-text">{{current_opening}}</span>
 
-    <p class="place">
-        {{formatted_address}}
-    </p>
+        <p class="place">
+            {{formatted_address}}
+        </p>
 
-    <p>{{price_text}}</p>
-
+        <p>{{price_text}}</p>
+    </div>
 </script>
 
 
@@ -60,6 +61,11 @@
                 <h5>Contact</h5>
                 <p class="phone">
                     {{international_phone_number}}
+                </p>
+
+                <h5>Address</h5>
+                <p class="place">
+                    {{formatted_address}}
                 </p>
             </div>
 
